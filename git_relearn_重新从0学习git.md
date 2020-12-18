@@ -367,14 +367,19 @@ vscode的source control面板中，其将git的add命令称为stage，注意后�
 vscode的source control面板中的缩写字母含义:
 D---deleted
 M---modified
-U---upstream(new file)
+U---untracked
+A---added
+C---conflict
 
 
 
 vscode的source control面板中的repo名为当前repo的目录名（或者叫做文件夹名）
 所以如果在网页重命名了repo，那么想在source control面板中也显示为新名字，要么把原本地repo删了重新clone到本地用vscode打开，要么就重命名repo的目录名再重新用vscode打开目录。
 
+JackWang@DESKTOP-BH3PFON MINGW64 /d/xampp/htdocs/jw_git/my_notes (main)
+最后的"(main)"表示当前在名为main的分支上，这是GitHub重命名的主分支名
 
+GitHub是通过`git branch -M "main"`这一句重命名主分支为main的
 
 
 
