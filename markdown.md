@@ -217,6 +217,7 @@ img
 ![jack518](/home/jack518/Pictures/jack518.png)
 
 引用链接
+vscode默认是支持引用链接的
 [张三丰][1]
 [jack518][jw]
 [武当][2]
@@ -233,6 +234,7 @@ img
 Markdown
 :  Text-to-HTML conversion tool
 
+vscode默认不支持脚注footnotes，需要安装插件`Markdown Footnotes`才可以
 I have more  to say up here.[^22]
 [^22]: to say down here
 
