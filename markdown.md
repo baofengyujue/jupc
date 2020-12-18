@@ -213,16 +213,18 @@ ref
 img
 <img src="https://static.adidas.com.cn/images/logo-new.png" alt="打不开显示我" title="adidas">
 
+不支持本地路径：
 ![jack518](/home/jack518/Pictures/jack518.png)
 
 引用链接
 [张三丰][1]
+[jack518][jw]
 [武当][2]
-[阴阳][3]
 
 
-[1]:jack518.com 'this is 张三丰'
-[2]:wudang.com
+[1]:http://jack518.com
+[jw]:http://jack518.com
+[2]:https://wudang.com '武当官网'
 
 [i1]:https://static.adidas.com.cn/images/logo-new.png
 
