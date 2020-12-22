@@ -23,6 +23,51 @@
 - bierner.markdown-footnotes
 - bierner.markdown-emoji
 
+比如：本来vscode中输入列表-，或者引用>后换行，都不会自动输入一个列表符-或引用符>，是在安装了插件Markdown All in One后才有的功能
+
+
+- [读前须知](#读前须知)
+    - [注意/说明](#注意说明)
+    - [在vscode中预览markdown文件三种方式：](#在vscode中预览markdown文件三种方式)
+    - [关于插件](#关于插件)
+- [关于换行](#关于换行)
+- [head](#head)
+  - [head](#head-1)
+    - [head](#head-2)
+          - [head](#head-3)
+- [format](#format)
+- [list](#list)
+  - [horizontal rules](#horizontal-rules)
+- [blockquote](#blockquote)
+- [code block](#code-block)
+    - [fenced code block](#fenced-code-block)
+    - [通过格式输出代码块](#通过格式输出代码块)
+    - [inline code block](#inline-code-block)
+- [math block](#math-block)
+- [task list](#task-list)
+- [table](#table)
+- [link](#link)
+    - [图片链接](#图片链接)
+    - [相当于此img标签](#相当于此img标签)
+    - [图片引用链接](#图片引用链接)
+    - [不支持本地路径：](#不支持本地路径)
+    - [引用链接](#引用链接)
+- [锚点](#锚点)
+    - [some header blah](#some-header-blah)
+- [footnotes](#footnotes)
+- [转义符号](#转义符号)
+    - [注册商标的转义例子&reg;](#注册商标的转义例子)
+- [表情](#表情)
+  - [跳转到锚点](#跳转到锚点)
+- [关于table of contents](#关于table-of-contents)
+  - [1. aa](#1-aa)
+    - [1.1. aaa](#11-aaa)
+    - [1.2. bb](#12-bb)
+      - [1.2.1. rrr](#121-rrr)
+      - [1.2.2. xx](#122-xx)
+- [embed html tag](#embed-html-tag)
+- [其它](#其它)
+- [本文部分引用自](#本文部分引用自)
 
 # 关于换行
 
@@ -428,6 +473,10 @@ Coca Cola<sup>&reg;</sup>
 
 <p style="color: red;">hello markdown!</p>
 
+
+# 其它
+
+- github中的markdown里面的链接两边最好留一空格，不然链接会将后面文字也包含进来
 
 
 # 本文部分引用自

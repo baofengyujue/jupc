@@ -1,3 +1,8 @@
+vm运行虚拟机时如果鼠标在外面滚动了，那么焦点就返还给Windows了，此时活动窗口为vm，可通过按Windows键和alt键判断，如果焦点在vm上的话，这时鼠标悬浮在虚拟机上或者Windows上的应用都可以滚动，在哪个系统滚动一下谁就获得焦点，但是如果焦点在Windows上非vm软件上的话，那么就不能悬浮在虚拟机上滚动了，必须先vm获得焦点。
+
+
+
+
 hold super---show "Keyborad Shortcuts"(showed almost all usual)
 alt+f1---focus to taskbar,use up/down key to navigate左侧任务栏
 alt+f2---run a command(in dash panel)
@@ -69,6 +74,37 @@ ctrl+c---stop current task
 ctrl+z---put current task in background(same as command end with &)
 
 
+ctrl+d---close terminal tab已经无效
+已经变成删除光标字符了，同del作用一样
+
+
+
+Ctrl+G: Leave history searching mode without running a command.用ctrl+r查找指令了的话，按esc退出来会把查找到的指令放在命令行，按ctrl+g退出的话就不会
+ctrl+y粘贴刚刚ctrl+w或ctrl+u/k的内容，若最近的ctrl+w是连续的（中途没进行任何其它键盘操作如插入字符或者移动光标等），则会粘贴连续ctrl+w的内容。（注：ctrl+y不是粘贴剪贴板也就是ctrl+shift+c的内容）
+ctrl+h作用同backspace
+ctrl+j作用同enter
+ctrl+m作用同enter
+ctrl+i搜索光标前所有字符除空格组成的文件名的文件
+Alt+R: Revert any changes to a command you’ve pulled from your history if you’ve edited it.使用上下键或者ctrl+p/n回溯历史指令的时候，如果对历史做了更改（比如插入字符或修改），那么在回溯到那条历史的时候按alt+r就可以一步恢复为最初的历史。（注：如果回溯到某条历史指令做了更改然后enter执行了的话，这时就创造了新的一条历史指令，原历史指令并未改变）
+ctrl+r进入搜索历史指令模式，输入要搜索的字符
+Alt + d   Delete the Word after the cursor.
+
+ctrl+t替换光标字符和光标前一字符位置，然后光标移到下一位；如果光标在行首则无法执行此指令，若光标在行尾则替换行尾两个字符
+Alt + t   Swap current word with previous
+
+Alt + u   UPPER capitalize every character from the cursor to the end of the current word.
+  Alt + l   Lower the case of every character from the cursor to the end of the current word.
+
+ctrl + shift+-也就是ctrl+_  Undo撤销
+Ctrl+v tells the terminal to not interpret the following character, so Ctrl+v Ctrl-I will display a tab character,
+similarly Ctrl+v ENTER will display the escape sequence for the Enter key: ^M，连续按ctrl+v ctrl+i会得到制表符tab，按ctrl+v enter会得到^M，按ctrl+v ctrl+3会得到^[等等
+ctrl+s Stop output to the screen (for long running verbose commands).
+            Then use PgUp/PgDn for navigation.当有指令在运行中时是阻止指令输出(没有指令在运行中的话就是阻止输出，就是按任何键都没输出除了ctrl+q或者ctrl+c，见ctrl+q指令)
+Ctrl + q当有指令在运行中时是Allow output to the screen，如果之前有被ctrl+s阻止过的话（ctrl+s阻止输出过程中在shell中输入字符按ctrl+q结束的话，会输出到命令行，ctrl+c结束的话即杀死了进程，中途输入的字符也会丢掉）
+ctrl+o不要使用这个快捷键，因为其行为很复杂而且没什么用
+
+无效果的快捷键记录：
+ctrl+v无效果，连续两次ctrl+v则会打印^V
 
 ### like windows:
 
@@ -147,12 +183,13 @@ shell的快捷键，不是terminal的
 Bash shell specific keyboard shortcuts are:
 
 ctrl+b/f/p/n 相当于left/right/up/down(back/forward/previous/next)
-alt+b/f 向前/向后移动一个词
+alt+b/f 光标向前/向后移动一个词
 
 Delete from the cursor to the beginning of the line.
 Ctrl+u
 Delete from the cursor to the end of the line.
 Ctrl+K
+Ctrl+K(也就是Ctrl+Shift+k)和Ctrl+k不一样都是删除到行尾么？(待验证)
 
 Delete from the cursor to the start of the word.
 Ctrl+W
@@ -165,6 +202,8 @@ Move to the end of the line
 Ctrl+E
 
 
+从ctrl+w的例子中可以看出ubuntu_shortcuts.md中ctrl+w和ctrl+W是一样的，也就是文中快捷键不区分大小写，ctrl+W并不代表ctrl+shift+w，大小写为小写的只是个别搞忘了
+
 
 ------
 
@@ -176,3 +215,48 @@ $ gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier '<Super>'
 
 settings->keyboard->shortcuts->navigation->scroll to bottom->switch to workspace left/right/above/below
 
+
+
+
+--------
+
+对于"hello world"，
+如果此时光标在第一个l处，那么执行
+w:光标会挪到w位置
+e:光标会挪到o位置
+b:光标会挪到h位置
+
+w为，光标移动到下个单词首字母
+e为，光标移动到光标处单词词尾字母（如果光标已经在词尾或者在空格处，那么就跳到下一个单词词尾）
+b为，光标移动到光标处单词词首字母（如果光标已经在词首或者在空格处，那么就跳到上一个单词词首）
+
+w:move to the next word
+e:move to the end of the word
+b:move to the beginning of the word
+
+w,e,b都将符号等作为单词分界
+W,E,B都只以空格或换行符作为单词分界
+
+可以以下文本导航观察效果：
+"there're--some...words  first... sentence
+   second-line  ...second  sentence.
+third line."
+
+对于含有中英文，中英文符号（数字相当于英文字母）的混合文本来说，
+中文，英文，中英文符号，这三种文本各成一派（注意中英文符号是一派的），
+光标从这三派其中一派切换到另一派时
+都会使w导航（包括e,b等训词导航）时光标停下来，只有空格和换行不会使训词导航停下来
+这时对于W来说，其仍然只以空格或换行作为单词分界
+
+混合文本可以以下文本导航观察效果：
+"你好hello123  world123世界，，,,..。。这个世界123...123真的really会好吗
+    我不知道know
+third line."
+
+
+
+插入模式就是，如果光标在a字符处闪烁，那么输入字符就会出现在a字符前面，此时光标还在a上闪烁，
+但退出插入模式过后，光标就向前挪动一位到a前一字符上了
+
+末行模式就是以冒号:起首开始输入指令的模式
+命令模式就是插入模式时用esc退出过后的模式，此时可以使用比如键入x删除光标处字符的一些命令
