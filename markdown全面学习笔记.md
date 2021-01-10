@@ -67,6 +67,8 @@
       - [1.2.1. rrr](#121-rrr)
       - [1.2.2. xx](#122-xx)
 - [embed html tag](#embed-html-tag)
+- [高级](#高级)
+  - [列表中代码块与列表文字挨得过紧](#列表中代码块与列表文字挨得过紧)
 - [其它](#其它)
 - [本文部分引用自](#本文部分引用自)
 
@@ -457,7 +459,7 @@ vscode原生预览中并不支持\[TOC]
 The TOC is automatically updated on file save by default.  
 TOC默认会在文件保存时自动更新。
 
-对于`markdown all in one`之vscode插件，按<kbd>ctrl+shift+p</kbd>输入section就有add/update section numbers
+对于`markdown all in one`之vscode插件，按<kbd>ctrl+shift+p</kbd>输入section就有add/update section numbers  
 输入table就有create table of contents
 
 # embed html tag
@@ -488,6 +490,27 @@ Coca Cola<sup>&reg;</sup>
 
 下方p标签中的内联样式在GitHub中不生效
 <p style="color: red;">hello markdown!</p>
+
+u标签在GitHub中也不生效  
+<u>hello markdown!</u>
+
+
+# 高级
+## 列表中代码块与列表文字挨得过紧
+- xxx
+  
+    ```
+    aa
+    aa
+    aa
+    ```
+- yyy
+    ```
+    aa
+    aa
+    aa
+    ```
+上面列表中xxx与其下的代码块有一空行间隔，yyy列表项则没有，这会导致yyy下面的代码块与yyy文本在GitHub上看起来挨得过紧
 
 
 # 其它
