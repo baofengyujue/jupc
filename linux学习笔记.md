@@ -17,7 +17,9 @@ clear/ctrl+l 清屏
 ls -alR a所有 l详细 R递归
 rm -rf r(/R)递归 f强制
 mv file1 file2 重命名
+mv dir1 dir2 移动目录dir1及其下所有文件到dir2下
 cp dir1 dir2 -r 拷贝目录
+cp nginx.conf nginx.conf.bak2 将nginx.conf拷贝一份名为nginx.conf.bak2的文件在当前目录
 mkdir dir
 mkdir -p dir1/dir2/dir3
 rmdir 如果文件夹不为空则不能移除

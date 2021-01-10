@@ -1,10 +1,10 @@
 # 读前须知
-本文作者：jack518(http://www.jack518.com/)
+本文作者：[jack518](https://www.jack518.com/)
 <br>文章GitHub地址：[链接](https://github.com/baofengyujue/jupc/blob/main/markdown.md)
 <br>引用请注明出处。
 
 
-### 注意/说明
+## 注意/说明
 - 本文是在vscode环境中撰写的，所以部分内容有关vscode设置，请注意辨别
 - 本文部分markdown元素vscode原生预览并不支持显示，要想支持请先安装下述vscode插件
 - 本文中部分markdown特性是是针对特定markdown实现的，比如GitHub支持风格的markdown
@@ -12,24 +12,24 @@
 - 本文不是严格按照循序渐进的方式介绍的，比如list里面会有“通过格式输出代码块的内容”，请注意区分
 - 部分语法都是等效的，比如fenced code block的波浪号\~~~或者反撇号\```都可以，再比如list里的\-或者\+都可以，我们自己用其中一个顺手的就行了，之所以都展示出来是因为你以后看到了要知道，当然可能很多同样作用的语法也没有在本文列举出来
 
-### 在vscode中预览markdown文件三种方式：
+## 在vscode中预览markdown文件三种方式：
 - 在markdown文件标签卡上右键，然后点击`Open Preview`
 - 或者在编辑器右上角放大镜分页图标（其快捷键为<kbd>ctrl+k,v</kbd>），点击即可
 - 或者直接快捷键<kbd>ctrl+shift+v</kbd>打开预览
 
-### 关于插件
+## 关于插件
 要想本文所有元素都能在vscode预览中正确显示，需安装下面vscode插件：
 - yzhang.markdown-all-in-one
 - bierner.markdown-footnotes
 - bierner.markdown-emoji
 
-比如：本来vscode中输入列表-，或者引用>后换行，都不会自动输入一个列表符-或引用符>，是在安装了插件Markdown All in One后才有的功能
+一些功能是属于插件的，比如：本来vscode中输入列表-，或者引用>后换行，都不会自动输入一个列表符-或引用符>，是在安装了插件Markdown All in One后才有的功能
 
 
 - [读前须知](#读前须知)
-    - [注意/说明](#注意说明)
-    - [在vscode中预览markdown文件三种方式：](#在vscode中预览markdown文件三种方式)
-    - [关于插件](#关于插件)
+  - [注意/说明](#注意说明)
+  - [在vscode中预览markdown文件三种方式：](#在vscode中预览markdown文件三种方式)
+  - [关于插件](#关于插件)
 - [关于换行](#关于换行)
 - [head](#head)
   - [head](#head-1)
@@ -40,18 +40,18 @@
   - [horizontal rules](#horizontal-rules)
 - [blockquote](#blockquote)
 - [code block](#code-block)
-    - [fenced code block](#fenced-code-block)
-    - [通过格式输出代码块](#通过格式输出代码块)
-    - [inline code block](#inline-code-block)
+  - [fenced code block](#fenced-code-block)
+  - [通过格式输出代码块](#通过格式输出代码块)
+  - [inline code block](#inline-code-block)
 - [math block](#math-block)
 - [task list](#task-list)
 - [table](#table)
 - [link](#link)
-    - [图片链接](#图片链接)
-    - [相当于此img标签](#相当于此img标签)
-    - [图片引用链接](#图片引用链接)
-    - [不支持本地路径：](#不支持本地路径)
-    - [引用链接](#引用链接)
+  - [图片链接](#图片链接)
+  - [相当于此img标签](#相当于此img标签)
+  - [图片引用链接](#图片引用链接)
+  - [不支持本地路径：](#不支持本地路径)
+  - [引用链接](#引用链接)
 - [锚点](#锚点)
     - [some header blah](#some-header-blah)
 - [footnotes](#footnotes)
@@ -99,6 +99,7 @@
 - 总结：markdown解析器会将挨着的两行文字放在同一个html标签中（即挨着的两段普通文字在一个p标签内，在-列表下一行的文字在一个li标签内），所以不管中间有多少空格都只会被解析为一个空格，只有中间空出来一行，才会将第二段文字解析到另一个html标签中，所以这就解释了为什么空一行换行和\<br>换行换行间隔不一样，因为空一行换行第二段文字在一个新的p标签里了，所以就有了外边距，而\<br>换行只是在一个p标签内换行而已。
 - 尽量保证文本结构清晰，别什么段落都黏在一起，促成我们养成好习惯。爱咋换行咋换，试试就知道了
 
+- 行尾有两个空格也算作一个换行\<br>（不是段落\<p>）
 
 
 # head#
@@ -109,17 +110,17 @@
 
 # format
 
-*italic*
-**bold**
-_italic_
-__bold__
-~~strikethrough~~
+*italic*  
+_italic_  
+**bold**  
+__bold__  
+~~strikethrough~~  
 
 
 
 # list
 
-数字+点后至少接一个空格数字列表才能生效，而且一个数字列表中数字显示的顺序是依次的，会忽略自定义的数字
+`数字+点`后至少接一个空格数字列表才能生效，而且一个数字列表中数字显示的顺序是依次的，会忽略自定义的数字
 
 1.你好
 2.世界
@@ -152,11 +153,11 @@ __bold__
     - 世界
     - world
 
-空格,1tab,2tab
+横线+空格即`- `后有4个空格就可以使ccc显示为块了
 
 - aaa
 -   bbb
--       ccc
+-     ccc
 - ddd
 eee
 - fff
@@ -203,7 +204,7 @@ this is second line
 
 
 # code block
-### fenced code block
+## fenced code block
 
 波浪线\~和反撇号\`都可以，但尽量使用反撇号\`
 
@@ -234,7 +235,7 @@ $y=9;
 echo "${x+y}"
 ```
 
-### 通过格式输出代码块
+## 通过格式输出代码块
 也可以通过格式输出代码块，但不建议这么做！有可能会导致结构不清晰
 <p style="color: red;">hello markdown!</p>
 
@@ -246,7 +247,7 @@ echo "${x+y}"
     你好世界！
 后面的内容正常书写，不用间隔一行，但为了书写的美观建议还是再间隔一行，不要像这一行这样
 
-### inline code block
+## inline code block
 单\`或者双\`\`都是一样的，都相当于code标签
 
 `let x=8;`
@@ -265,7 +266,7 @@ f(x)=x^2+y^2
 $$
 
 # task list
-原生不支持task list,注意这里是字母x不是乘号*
+原生不支持task list,注意这里是字母x不是乘号*  
 在vscode插件Markdown All in One中输入乘号*是格式不正确的
 
 - [x] task 1
@@ -294,30 +295,29 @@ $$
 
 
 title属性要么不加，要加就必须在引号里面，不然格式错误
-### 图片链接
+## 图片链接
 ![打不开显示我](https://static.adidas.com.cn/images/logo-new.png 'adidas')
 
-### 相当于此img标签
+## 相当于此img标签
 <img src="https://static.adidas.com.cn/images/logo-new.png" alt="打不开显示我" title="adidas">
 
-### 图片引用链接
+## 图片引用链接
 ![alt][i1]
 
 [i1]:https://static.adidas.com.cn/images/logo-new.png
 
-### 不支持本地路径：
+## 不支持本地路径：
 ![jack518](/home/jack518/Pictures/jack518.png)
 
-### 引用链接
+## 引用链接
 vscode默认是支持引用链接的
 
 [张三丰][1]
 [jack518][jw]
 [武当][2]
 
-
 [1]:http://jack518.com
-[jw]:http://jack518.com
+[jw]:https://jack518.com
 [2]:https://wudang.com '武当官网'
 
 
@@ -329,6 +329,8 @@ some anchor below here
 <a id="tohere"></a>
 <a id="hi-there"></a>
 <a id="hello_there"></a>
+
+下面header下文会有链接跳转于此
 
 ### some header blah
 
@@ -395,7 +397,8 @@ CSS CODE    \00AE
 
 一些[emoji shortcode](https://gist.github.com/rxaviers/7360908)
 
-最好是直接输入，不要用shortcode，比如：
+最好是直接输入(win10中按<kbd>win+;</kbd>可直接输入表情)，  
+不要用shortcode(因为很多表情shortcode中没有)，比如：
 
 😁😸😎🧡💛💗💤⛔💯🏀💊🍇🍉🍜🍕🍔✈🚀🐘🐈👩👌🙏🎸🧲
 
@@ -416,7 +419,7 @@ CSS CODE    \00AE
 
 [#hello_there](#hello_there)
 
-heading标题可以直接跳转，空格以连字符代替
+header标题可以直接跳转，空格以连字符代替
 
 [跳转到some header](#some-header-blah)
 
@@ -440,9 +443,10 @@ vscode原生预览中并不支持\[TOC]
 ### 1.2. bb
 #### 1.2.1. rrr
 #### 1.2.2. xx
-The TOC is automatically updated on file save by default.
+The TOC is automatically updated on file save by default.  
+TOC默认会在文件保存时自动更新。
 
-对于`markdown all in one`vscode插件，按<kbd>ctrl+shift+p</kbd>输入section就有add/update section numbers
+对于`markdown all in one`之vscode插件，按<kbd>ctrl+shift+p</kbd>输入section就有add/update section numbers
 输入table就有create table of contents
 
 # embed html tag
