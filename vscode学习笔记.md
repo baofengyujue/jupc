@@ -73,10 +73,10 @@
   ```
   并在snippet配置文件`markdown.json`中写了如下配置，
   ```json
-  	"kbd keybinding":{
-		"prefix": "a",
-		"body": "<kbd>$TM_SELECTED_TEXT</kbd>"
-	}
+    "kbd keybinding":{
+    "prefix": "a",
+    "body": "<kbd>$TM_SELECTED_TEXT</kbd>"
+  }
   ```
   （注意上面没有prefix域的话，该snippet根本就不会起效，所以加了个prefix）
   但是，这样配置并不起效，在js文件中同样可以使用这个快捷键，再一看keybindings的官方介绍文档
@@ -94,3 +94,8 @@ ctrl+shift+[/]在intellij为move caret to block start/end with selection，在vs
 set selection anchor <kbd>ctrl+k,ctrl+b</kbd>
 select from anchor to cursor<kbd>ctrl+k,ctrl+k</kbd>
 cancel selection anchor<kbd>esc</kbd>用<kbd>ctrl+k,ctrl+b</kbd>选择过后默认就取消了
+
+
+vscode中ctrl+r替换经常找不到查找项（特别是按alt+L在选区中查找时，因为这时候焦点变动等会影响到查找功能），如果查找项（或查找正则表达式）输入没问题的话，先按esc关闭替换悬浮窗口，再ctrl+r重新查找就可以了
+
+vscode中查找开启正则后可以匹配像\u0009这样的Unicode码，\u0009为一个tab符，这样就可以把文档中的tab找出来。当然可以直接在文档中复制要找的tab符，粘贴到查找框中即可找出tab符来。
