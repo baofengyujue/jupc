@@ -23,13 +23,14 @@
 - bierner.markdown-footnotes
 - bierner.markdown-emoji
 
-一些功能是属于插件的，比如：本来vscode中输入列表-，或者引用>后换行，都不会自动输入一个列表符-或引用符>，是在安装了插件Markdown All in One后才有的功能
+一些功能是属于插件的，比如：本来vscode中输入列表符<kbd>-</kbd>，或者引用符<kbd>></kbd>后换行，都不会自动在下一行输入一个列表符<kbd>-</kbd>或引用符<kbd>></kbd>，是在安装了插件**Markdown All in One**后才有的功能
 
-
+# TOC
 - [读前须知](#读前须知)
   - [注意/说明](#注意说明)
   - [在vscode中预览markdown文件三种方式：](#在vscode中预览markdown文件三种方式)
   - [关于插件](#关于插件)
+- [TOC](#toc)
 - [关于换行](#关于换行)
 - [head](#head)
   - [head](#head-1)
@@ -206,7 +207,7 @@ this is second line
 # code block
 ## fenced code block
 
-波浪线\~和反撇号\`都可以，但尽量使用反撇号\`
+波浪线<kbd>~~~</kbd>和反撇号<kbd>\`\`\`</kbd>都可以，但尽量使用反撇号<kbd>\`\`\`</kbd>
 
 ```
 there are some block contents
@@ -214,29 +215,30 @@ there are some block contents
 
 ```javascript
     let x = 7;
-    console.log(x+8);
+    console.log(x + 8);
 ```
 ```js
     let x = 7;
-    console.log(x+8);
+    console.log(x + 8);
 ```
 ~~~js
     let x = 7;
-    console.log(x+8);
+    console.log(x + 8);
 ~~~
 ~~~css
-#app{
-    width:1000px;
+#app {
+    width: 1000px;
 }
 ~~~
 ```php
-$x=6;
-$y=9;
-echo "${x+y}"
+$x = 6;
+$y = 9;
+echo "${x + y}"
 ```
 
 ## 通过格式输出代码块
-也可以通过格式输出代码块，但不建议这么做！有可能会导致结构不清晰
+也可以通过格式输出代码块，但不建议这么做！有可能会导致结构不清晰  
+下方对p标签定义了内联样式，但其在GitHub中不生效
 <p style="color: red;">hello markdown!</p>
 
     <p style="color: red;">hello markdown!</p>
@@ -248,7 +250,7 @@ echo "${x+y}"
 后面的内容正常书写，不用间隔一行，但为了书写的美观建议还是再间隔一行，不要像这一行这样
 
 ## inline code block
-单\`或者双\`\`都是一样的，都相当于code标签
+单<kbd>\`</kbd>或者双<kbd>\`\`</kbd>都是一样的，都相当于code标签
 
 `let x=8;`
 ``let y=9;``
@@ -264,6 +266,8 @@ echo "${x+y}"
 $$
 f(x)=x^2+y^2
 $$
+
+> 双\$$不能用作内联形式，否则不生效
 
 # task list
 原生不支持task list,注意这里是字母x不是乘号*  
@@ -285,7 +289,7 @@ $$
 | Header    |    Title    | Here's this |
 | Paragraph |    Text     |    And more |
 
-:---左对齐，:---:居中，---:右对齐
+<kbd>:-</kbd>左对齐，<kbd>:-:</kbd>居中，<kbd>-:</kbd>右对齐
 
 
 # link
@@ -386,19 +390,26 @@ CSS CODE    \00AE
 
 # 表情
 需要安装Matt Biener的vscode插件`Markdown Emoji`
-:smile:
-:joy:
-:blush:
-:zzz:
-:sad:
-:happy:
-`:joy:`
-`:smile:`
+
+:smile:  
+:joy:  
+:blush:  
+:zzz:  
+
+没有下列表情的shortcode  
+
+:sad:  
+:happy:  
+
+放在<kbd>\`</kbd>中就不生效了  
+
+`:joy:`  
+`:smile:`  
 
 一些[emoji shortcode](https://gist.github.com/rxaviers/7360908)
 
-最好是直接输入(win10中按<kbd>win+;</kbd>可直接输入表情)，  
-不要用shortcode(因为很多表情shortcode中没有)，比如：
+最好是直接输入表情(win10中按<kbd>win+;</kbd>可直接输入表情)，  
+不要用shortcode(因为很多表情shortcode中没有)，直接输入表情：
 
 😁😸😎🧡💛💗💤⛔💯🏀💊🍇🍉🍜🍕🍔✈🚀🐘🐈👩👌🙏🎸🧲
 
@@ -475,6 +486,7 @@ Coca Cola<sup>&reg;</sup>
 
 <img src='https://www.ruanyifeng.com/blog/images/person2_s.jpg'>
 
+下方p标签中的内联样式在GitHub中不生效
 <p style="color: red;">hello markdown!</p>
 
 
