@@ -1,16 +1,18 @@
 # 读前须知
-- ctrl+w,q等价于:q(ctrl+w了再按q,ctrl+w->ctrl+q没有反应)
+本文作者：[jack518](https://www.jack518.com/)
+<br>文章GitHub地址：[链接](https://github.com/baofengyujue/jupc/blob/main/markdown.md)
+<br>引用请注明出处。
+
+## 注意/说明
+- <kbd>ctrl+w,q</kbd>为按了<kbd>ctrl+w</kbd>再按<kbd>q</kbd>，却别于<kbd>ctrl+w,ctrl+q</kbd>
+- `ctrl+d/u`代表`ctrl+d`或者`ctrl+u`，而不是`ctrl+d`或者`u`，如果是后者的情况不会采用这种表达形式
 - shell即是Ubuntu/Linux中的命令行，命令行窗口在Ubuntu/Linux中称为terminal，terminal和shell的区别在于如果是在服务器输入命令就处在shell之中，因为服务器操作没有图形界面，所以就没有terminal
-- 删除并复制即为剪切
-
-
-- vim笔记中，字母大小写是否为shift加字母要说明
-- 文中许多符号加命令的方式要在文章开头做出说明，说明本文的表达方式，不然读者会搞不清经常，比如"+c/d/y表示shift加逗号过后键入c或d或y
-- 文中的d应该是剪切而不是删除，注意说明
-文中说明d(delete)的时候，删除并复制，加上一句相当于剪切
-文中的删除并复制是否能改为剪切
-- 表示或的斜杠符号/，的两边选项和前文相连，容易造成歧义或误解，多使用标点符号或分隔符
-- 注意句首与行首的区别
+- vim中d本意为删除，但其效果却是剪切，注意文中关于d删除的说法。
+- 文中多次出现的`删除并复制`即为`剪切`
+- vim中大小写命令是不同的意思，注意区分命令的大小写如i/I,w/W
+- 文中很多符号命令要注意，如``x`,`'x`,`"x`其中的反撇号，单引号，双引号都是命令
+- 注意句首与行首的区别，句首代表本行语句首位置，行首代表本行开头的位置。
+- 有关`d/D`,`c/C`,`x/X`,`s/S`等命令的删除都表示删除并复制（即剪切）的意思
 
 
 # 模式切换
@@ -99,14 +101,9 @@ H/M/L   光标移动到当前屏幕的高/中/低位置
 
 %       光标移动到匹配括号处
 
-``      光标可在当前位置与上一次导航位置之间切换(上下左右移动不能算作导航，必须是执行了导航操作才算)
 
-mx      光标处做标记x（x只能为单字符，因为按m然后再输入一个字符标记录入就结束了）
-`x      光标移动到x标记处
-'x      光标移动到x标记处的句首
-
-
-fx/Fx   光标向右/向左跳到本行第一个x字符处（x可以是任意可键入字符，不包括tab等）（如果找不到，则什么也不会发生）
+fx/Fx   光标向右/向左跳到本行第一个x字符处（x可以是任意可键入字符，不包括tab等）
+        （如果找不到，则什么也不会发生）
 tx/Tx   光标向右/向左跳到本行第一个x字符前一个/后一个字符处
 
 */#     光标移动到下一个/上一个当前光标处的单词
@@ -129,6 +126,39 @@ e       光标跳到当前单词的词尾，如果已经处在当前单词的词
 - <kbd>Esc</kbd>或<kbd>ctrl+[</kbd>或<kbd>ctrl+c</kbd>退出插入模式后，都会使光标位置向前挪一位
 
 - 搜索模式`/`或者末行模式`:`都可以用`ctrl+n/p`或者`下上键`查看下一个或者上一个在搜索模式`/`下的搜索记录或者在末行模式`:`下的命令记录
+
+
+## Marks and Positions
+```
+``      go to the position before the last jump
+        光标回到最近一次导航操作前的位置
+        （最近一次导航操作包括命令``做的导航，所以不停按``会在两个位置之间切换）
+`.      go to the position of the last change in this file
+        光标回到上一次编辑文件的地方（即使重开vim，也能返回）
+
+mx      光标处做标记x（x只能为单字符，因为按m然后再输入一个字符标记录入就结束了）
+`x      光标移动到x标记处
+'x      光标移动到x标记处的句首
+
+
+:marks      list of marks
+ma          set current position for mark A
+`a          jump to position of mark A
+y`a         yank text to position of mark A
+
+:ju[mps]    list of jumps
+Ctrl+i      go to newer position in jump list
+Ctrl+o      go to older position in jump list
+
+:changes    list of changes
+g,          go to newer position in change list
+g;          go to older position in change list
+
+```
+- 反撇号<code>\`</code>和单引号号`'`都可以结合标记使用，
+  但<code>\`</code>是移动到标记处，`'`是移动到标记处句首
+
+
 
 ## 使用w命令对下列不同文本进行光标移动，考察w命令的行为。
 > `w/b/e`的行为是相似的
@@ -167,17 +197,17 @@ e       光标跳到当前单词的词尾，如果已经处在当前单词的词
 1. 对于换行
     ```
     hello
-
-
-
-
-
+    
+    
+       
+      
+    
     world
-
+    
     world
-
-
-    world.
+      
+      
+      world.
     ```
 
     其中的换行和空格情况为
@@ -195,7 +225,7 @@ e       光标跳到当前单词的词尾，如果已经处在当前单词的词
     ··
     ··world.
     ```
-    可以看到w/W对于单独的换行会视作单词，对于空格和只带有空格的行会全部跳过。
+    可以看到`w/W`对于单独的换行会视作单词，对于空格和只带有空格的行会全部跳过。
 
 
 # 编辑
@@ -205,8 +235,13 @@ i/a     当前光标前/后插入
 I/A     当前行首/尾插入
 o/O     在当前行上面/下面新起一行
 
-x/X     删除并复制光标处/光标处前1位字符（不会进入插入模式）
-s/S     删除并复制光标处字符/光标所处行，并进入插入模式
+x       剪切光标处字符，光标移到前一位
+X       剪切光标处前1位字符，光标仍在原位
+
+s/S     剪切光标处字符/光标所处行，并进入插入模式（S等价于cc）
+
+yl      复制光标处单个字符（y接小写L，不是y1）
+yh      复制光标处前1位单个字符
 
 r       按r后，键入一个字符，光标处字符会替换为键入字符
 
@@ -217,19 +252,29 @@ J       删除当前行末尾换行符使下1行合并到当前行
 ~       切换当前英文字符的大小写
 
 y       仅复制
-d       删除并复制，相当于剪切
-c       删除并复制，再进入插入模式
+d       删除（剪切）
+c       改变，即剪切后进入插入模式
+
+Y       复制当前行（一整行，不是只复制光标后部分）
+D       删除（剪切）当前行光标后部分
+C       剪切当前行光标后部分，并进入插入模式
+
+yy      复制当前行（相当于Y）
+dd      删除（剪切）当前行
+cc      剪切当前行，并进入插入模式
 
 p/P     复制的内容粘贴到光标处字符后/字符前（粘贴后光标停在粘贴的字符上）
 
 u       撤销
+U       撤销上一改变的行
 ctrl+r  重做
 
 .       重复上一次执行的命令(不包括移动命令)
 
 K       在terminal中临时打开当前单词的manual
 
-=       在可视模式中选择文本后，按=重新只能缩进选择文本
+=       re-indent
+        在可视模式中选择文本后，按=重新只能缩进选择文本
         智能缩进也就是根据文档语言格式，决定怎么对行进行缩进
 
 ==      智能缩进当前行
@@ -238,12 +283,13 @@ K       在terminal中临时打开当前单词的manual
 >>/<<   indent/unindent本行
 
 ```
-- 上面会进入插入模式的有a/A,i/I,s/S,c/C,o/O
+- 上面会进入插入模式的有`a/A`,`i/I`,`s/S`,`c/C`,`o/O`
 - `R` 进入替换模式，连续键入字符会在当前行不断向后替换光标处的字符，即使末尾已经没有字符了，这时候也会像替换光标处空字符一样不断向后插入键入的字符，而且替换字符不会换行，始终都在当前行。
 - `~` 切换当前英文字符的大小写（切换，不是转大写），切换后光标移到下一字符。如果为非英文，则只移动光标位置
 - 输入`:`进入末行模式，再输入2,3>>然后再回车，也就是`:2,3>>`，就会使2到3行的文本向后缩进一次（当然一次缩进的空格多少可以在配置文件中设置，参见后文）
 - `ctrl+r` 重做redo，相当于vscode中的ctrl+y
-- `p`不会粘贴<kbd>ctrl+shift+c</kbd>复制的内容，详见## 关于复制和粘贴
+- `p`不会粘贴<kbd>ctrl+shift+c</kbd>复制的内容，详见[关于复制和粘贴](#关于复制和粘贴)
+- 智能缩进也就是根据文档语言格式，决定怎么对行进行缩进
 
 
 
@@ -253,6 +299,8 @@ K       在terminal中临时打开当前单词的manual
 
 3s      执行3次s后进入插入模式，相当于3x后进入插入模式
 3x
+
+3yl     向后执行3次yl，即复制后3个字符
 
 3p      执行3次p，即粘贴3次
 
@@ -273,7 +321,7 @@ K       在terminal中临时打开当前单词的manual
 :10,20d     删除10行到20行
 ```
 - 操作个数与操作命令很多时候位置可以互换，比如`y2l`也可以为`2yl`，但比如`5x`不能为`x5`，因为x命令本身已经执行了操作
-- 重复命令代表操作当前行，比如`dd`,`<<`,`yy`,`cc`,`==`
+- 重复命令代表操作当前行，比如`dd`,`yy`,`cc`,`==`,`<<`
 - 对于命令`2yy`，为知道复制的行数的情况，
   
   ```
@@ -281,7 +329,6 @@ K       在terminal中临时打开当前单词的manual
   开始行  输入ma做一个a标记
   结束行  输入y'a或d'a     复制/删除开始行到结束行（不是开始到结束位置,操作的是行）
   ```
-
 
 
 
@@ -295,26 +342,38 @@ y2j/y2k     向下/向上复制2行
 
 dd,p        下移当前行
 k,dd,p      上移当前行
-
 ```
+
+
+## 插入模式中可使用的快捷键
+```
+ctrl+w/u        删除光标前面的一个单词/前面的所有字符，这个与emacs一样
+ctrl+n/p        从提示框的上面/下面开始选择完成单词(连续键入则会向下/向上切换)
+                插入模式中，在单词前缀后面直接按ctrl+n/p就会调出自动完成列表
+ctrl+t/d        tab或de-tab一次本行
+ctrl+o          从插入模式临时进入一次命令模式（执行完后随即返回插入模式）
+```
+- 在插入模式中，输入一个单词前面部分然后按<kbd>ctrl+n</kbd><kbd>或ctrl+p</kbd>就会调出自动完成列表(即autocomplete操作)，然后再按<kbd>ctrl+n</kbd><kbd>或ctrl+p</kbd>向下/向上切换完成列表选项。在第一次调出完成列表或切换时，提示选项就自动输入了，不用按tab或者enter上屏了，这时可以按空格，句点，分号等等继续输入或者按退格删掉一部分提示内容。
 
 
 ## 速记表
 ```
 y       仅复制
-d       删除并复制，相当于剪切
-c       删除并复制，再进入插入模式
+d       删除（剪切）
+c       改变，即剪切后进入插入模式
 ```
-|            | 更改c | 删除d | 复制y |
-| :--------: | :---: | :---: | :---: |
-| 到下一词头 |  cw   |  dw   |  yw   |
-|   到词头   | ce/b  | de/b  | ye/b  |
-|   到词尾   | cE/B  | dE/B  | yE/B  |
-|  整个单词  |  caw  |  daw  |  yaw  |
-|   一整行   |  cc   |  dd   | yy/Y  |
-|   到行尾   | c$/C  | d$/D  |  y$   |
-|   到行首   |  c0   |  d0   |  y0   |
-|  单个字符  |   r   |  x/X  | yl/yh |
+|  位置/数量  | 更改c | 删除d | 复制y |
+| :---------: | :---: | :---: | :---: |
+| 到下一词头  |  cw   |  dw   |  yw   |
+| 向后2个单词 |  2cw  |  2dw  |  2yw  |
+|   到词头    | ce/b  | de/b  | ye/b  |
+|   到词尾    | cE/B  | dE/B  | yE/B  |
+|  整个单词   |  caw  |  daw  |  yaw  |
+|   一整行    |  cc   |  dd   | yy/Y  |
+|   到行尾    | c$/C  | d$/D  |  y$   |
+|   到行首    |  c0   |  d0   |  y0   |
+|  单个字符   |   r   |   x   |  yl   |
+|   2个字符   |  2s   |  2x   |  2yl  |
 
 
 ## 助忆全名
@@ -324,9 +383,11 @@ d(delete)
 c(change)
 p(paste)
 J(join)
-r(replace)
-i(insert)
-ctrl+r(redo)
+r/R(replace)
+i/I(insert)
+a/A(insert append)
+o/O(open a new line)
+s/S(substitute)
 H/M/L(high/middle/low)
 zt/zz/zb(top/zz/bottom)
 w(word)
@@ -340,20 +401,11 @@ ctrl+e/y(extra/yield line即向下额外获取一行/向上退让一行)
 ctrl+u/d(up/down)
 ctrl+b/f(backword/forward)
 ctrl+n/p(next/previous)
-fx/Fx(find)
-ma(mark)
+fx/Fx(find x)
+ma(mark a)
 u(undo)
 ctrl+r(redo)
 ```
-
-
-## 插入模式中可使用的快捷键
-```
-ctrl+w/u        删除光标前面的一个单词/前面的所有字符，这个与emacs一样
-ctrl+n/p        从提示框的上面/下面开始选择完成单词(连续键入则会向下/向上切换)
-ctrl+o          从插入模式临时进入一次命令模式（执行完后随即返回插入模式）
-```
-
 
 
 # 可视模式
@@ -363,9 +415,21 @@ v       进入可视模式
 V       进入可视行模式，以行为单位的可视模式
 ctrl+v  进入可视块模式，相当于vscode中的垂直选区
 ```
-- 进入可视模式/可视行模式/可视块模式后，可以使用导航命令如%，在可视模式v下为选择括号间的内容。
-- 进入可视模式/可视行模式/可视块模式后，c,d,y,=,~等命令都是可用的，退出可视模式后，可键入`p`命令粘贴在可视模式中复制的内容
+- 进入可视模式/可视行模式/可视块模式后，可以使用导航命令如`%`，在可视模式v下为选择括号间的内容。
 
+可视模式下的命令
+```
+c,d,y   edit-related
+=,>,<   indent-related
+
+o       move to other end of marked area
+O       move to other corner of block(针对可视块模式的)
+~       switch case
+u       change marked text to lowercase
+U       change marked text to uppercase
+```
+- 注意命令模式下`u/U`表示撤销/撤销行修改
+- 退出可视模式后，可键入`p`命令粘贴在可视模式中复制的内容
 
 
 # 查找与替换
@@ -386,8 +450,7 @@ d/str		向后删除到str(不删str)
 d?str		向前删除到str(删除str)
 
 ```
-- 输入了`/str`或`?str`等命令后要按回车才开始查找，这时可用n/N导航到查找结果下一个/上一个
-- 
+- 输入了`/str`或`?str`等命令后要按回车才开始查找，这时可用`n/N`导航到查找结果下一个/上一个
 
 
 # 操作
@@ -402,13 +465,25 @@ q   结束记录
 （关于什么是结束符，见下方）
 
 
-"x接c/d/y相关命令    将c/d/y相关命令复制的内容标记为x（x为任意字符）
-"xp                 将标记为x复制的内容粘贴到当前光标处
-比如命令"ay$将当前光标到行尾的文本复制，并将此复制内容标记为a，然后命令"ap将标记为a复制的内容粘贴到当前光标处（注意双引号"为命令）
+"x接c/d/y相关命令    将c/d/y相关命令复制的内容注册为x（x为任意字符）
+"xp                 将注册为x复制的内容粘贴到当前光标处
+比如命令"ay$将当前光标到行尾的文本复制，并将此复制内容注册为a，然后命令"ap将注册为a复制的内容粘贴到当前光标处（注意双引号"为命令）
 ```
 - 宏(macro)的意思就是一系列操作，从`qa`开始记录宏a到`q`结束记录期间的所有操作都会被记录下来（包括光标移动操作，插入的字符，执行的命令等等），`@a`应用宏的时候就会将宏a记录的这些操作在当前光标处全部再执行一遍。
 - `:abbr`和autohotkey的热字串类似, 同样需要结束符来结束。结束符指的是空格，换行，符号，退出当前编辑模式，任何表示已经没有正常输入该单词的字符或者命令都叫结束符
 - 怎样删除该缩写，当然最简单的就是比如`abbr: hw helloworld`要删除的话就是`abbr: hw hw`，当然有没有更好的方式，查一下。退出vim过后，该缩写也应该失效了
+
+来自[Vim Cheat Sheet](https://vim.rtorr.com/)对于Registers更为清晰完整的描述：
+```
+:reg[isters] - show registers content
+
+"xy - yank into register x
+"xp - paste contents of register x
+"+y - yank into the system clipboard register
+"+p - paste from the system clipboard register
+
+Tip Registers are being stored in ~/.viminfo, and will be loaded again on next restart of vim.
+```
 
 
 
@@ -561,7 +636,7 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 ```
-- 第一句`filetype plugin indent on`在vimrc文件中默认就在，只不过被注释掉了。原文为：
+- 第一句*filetype plugin indent on*在vimrc文件中默认就在，只不过被注释掉了。原文为：
   
   ```
   " Uncomment the following to have Vim load indentation rules and  plugins
@@ -570,7 +645,7 @@ set expandtab
   ```
 
 # vi
-服务器上的vim或者非terminal vim
+服务器上的vim或者非terminal的vim
 
 值得关注的可以与不可以：
 
@@ -590,6 +665,25 @@ set expandtab
 - <kbd>ctrl+[</kbd>返回命令模式
 
 
-# vim学习链接
+# vim推荐学习链接
 Vim Cheat Sheet
 https://vim.rtorr.com/
+
+其中的目录我重新排序了一下
+1. Global                   全局指令
+1. Exiting                  退出vim
+1. Cursor Movement          光标移动
+1. Insert Mode              插入模式
+1. Editing                  编辑模式
+1. Cut and Paste            剪切与粘贴
+1. Indent text              缩进文本
+1. Search and Replace       搜索与替换
+2. Marking text(visual mode)    标记文本/选择文本（即可视模式）
+3. Visual commands          可视模式下的命令
+4. Marks and Positions      标记与位置
+5. Registers                注册指令
+6. Macros                   宏指令
+7. Search in multiple files     多文件下搜索
+8. Working with multiple files  多文件同时工作/编辑
+9. Tabs                     窗口标签
+10. Diff                     

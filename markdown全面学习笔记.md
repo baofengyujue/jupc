@@ -59,7 +59,7 @@
 - [转义符号](#转义符号)
     - [注册商标的转义例子&reg;](#注册商标的转义例子)
 - [表情](#表情)
-  - [跳转到锚点](#跳转到锚点)
+- [跳转到锚点](#跳转到锚点)
 - [关于table of contents](#关于table-of-contents)
   - [1. aa](#1-aa)
     - [1.1. aaa](#11-aaa)
@@ -417,7 +417,7 @@ CSS CODE    \00AE
 
 要注意将文档保存为UTF-8格式
 
-## 跳转到锚点
+# 跳转到锚点
 包括自定义锚点和标题锚点
 
 下面两种方式都能访问到tohere锚点，说明下划线被解析去掉了
@@ -493,6 +493,9 @@ Coca Cola<sup>&reg;</sup>
 
 u标签在GitHub中也不生效  
 <u>hello markdown!</u>
+
+code标签可以使用
+反撇号backtick:<code>\`</code>
 
 
 # 高级
