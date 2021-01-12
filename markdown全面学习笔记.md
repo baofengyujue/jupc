@@ -35,7 +35,9 @@
 - [head](#head)
   - [head](#head-1)
     - [head](#head-2)
-          - [head](#head-3)
+      - [head](#head-3)
+        - [head](#head-4)
+          - [head](#head-5)
 - [format](#format)
 - [list](#list)
   - [horizontal rules](#horizontal-rules)
@@ -100,7 +102,6 @@
 
 - \<br>换行和空行换行还是有区别的
 - 总结：markdown解析器会将挨着的两行文字放在同一个html标签中（即挨着的两段普通文字在一个p标签内，在-列表下一行的文字在一个li标签内），所以不管中间有多少空格都只会被解析为一个空格，只有中间空出来一行，才会将第二段文字解析到另一个html标签中，所以这就解释了为什么空一行换行和\<br>换行换行间隔不一样，因为空一行换行第二段文字在一个新的p标签里了，所以就有了外边距，而\<br>换行只是在一个p标签内换行而已。
-- 尽量保证文本结构清晰，别什么段落都黏在一起，促成我们养成好习惯。爱咋换行咋换，试试就知道了
 
 - 行尾有两个空格也算作一个换行\<br>（不是段落\<p>）
 
@@ -108,7 +109,8 @@
 # head#
 ## head##
 ### head###
-...
+#### head####
+##### head#####
 ###### head######
 
 # format
@@ -166,11 +168,17 @@ eee
 - fff
 
 ## horizontal rules
-hyphen,asterik
+
+hyphen`\-`  
+asterik`*`  
+underline`_`  
+html tag`<hr>`  
 
 ---
 -----
+***
 *****
+___
 _____
 <hr>
 
