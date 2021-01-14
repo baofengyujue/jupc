@@ -71,7 +71,7 @@
 - [embed html tag](#embed-html-tag)
 - [高级](#高级)
   - [列表中代码块与列表文字挨得过紧](#列表中代码块与列表文字挨得过紧)
-  - [header下方直接输入分割线会导致toc不同](#header下方直接输入分割线会导致toc不同)
+  - [header下方直接输入分割线异常行为](#header下方直接输入分割线异常行为)
   - [### header1](#-header1)
   - [### header2](#-header2)
     - [header3](#header3)
@@ -528,7 +528,11 @@ code标签可以使用
     ```
 上面列表中xxx与其下的代码块有一空行间隔，yyy列表项则没有，这会导致yyy下面的代码块与yyy文本在GitHub上看起来挨得过紧
 
-## header下方直接输入分割线会导致toc不同
+## header下方直接输入分割线异常行为
+分割线放在header下一行会导致：
+- toc显示不正常
+- 点击toc链接跳转不到相应header
+
 ### header1
 ---
 ### header2

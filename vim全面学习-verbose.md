@@ -875,7 +875,8 @@ set expandtab
 Vim Cheat Sheet
 https://vim.rtorr.com/
 
-其中的目录我重新排序了一下
+其中的目录我重新排序了一下：
+```
 1. Global                       全局指令
 2. Exiting                      退出vim
 3. Cursor Movement              光标移动
@@ -892,4 +893,5 @@ https://vim.rtorr.com/
 14. Search in multiple files    多文件下搜索
 15. Working with multiple files 多文件同时工作/编辑
 16. Tabs                        窗口标签
-17. Diff                     
+17. Diff                        
+```
