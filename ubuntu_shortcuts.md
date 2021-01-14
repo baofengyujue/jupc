@@ -1,5 +1,5 @@
 vm运行虚拟机时如果鼠标在外面滚动了，那么焦点就返还给Windows了，此时活动窗口为vm，可通过按Windows键和alt键判断，如果焦点在vm上的话，这时鼠标悬浮在虚拟机上或者Windows上的应用都可以滚动，在哪个系统滚动一下谁就获得焦点，但是如果焦点在Windows上非vm软件上的话，那么就不能悬浮在虚拟机上滚动了，必须先vm获得焦点。
-
+ctrl+alt+enter全屏VMware当前打开系统
 
 
 
@@ -73,38 +73,21 @@ ctrl+a/e---caret move to line beginning/end
 ctrl+c---stop current task
 ctrl+z---put current task in background(same as command end with &)
 
-
 ctrl+d---close terminal tab已经无效
 已经变成删除光标字符了，同del作用一样
 
 
+Ubuntu系统的ctrl+alt+h/n被fcitx输入法软件拦截了，按win键，搜索fcitx configuration，点击打开，在input method选项卡一页中双击英文输入法（不是搜狗），就可看到这两个快捷键被注册了。点击快捷键的位置，键入esc就将其设为empty了（如果esc不行就用enter或者backspace）
 
-Ctrl+G: Leave history searching mode without running a command.用ctrl+r查找指令了的话，按esc退出来会把查找到的指令放在命令行，按ctrl+g退出的话就不会
-ctrl+y粘贴刚刚ctrl+w或ctrl+u/k的内容，若最近的ctrl+w是连续的（中途没进行任何其它键盘操作如插入字符或者移动光标等），则会粘贴连续ctrl+w的内容。（注：ctrl+y不是粘贴剪贴板也就是ctrl+shift+c的内容）
-ctrl+h作用同backspace
-ctrl+j作用同enter
-ctrl+m作用同enter
-ctrl+i搜索光标前所有字符除空格组成的文件名的文件
-Alt+R: Revert any changes to a command you’ve pulled from your history if you’ve edited it.使用上下键或者ctrl+p/n回溯历史指令的时候，如果对历史做了更改（比如插入字符或修改），那么在回溯到那条历史的时候按alt+r就可以一步恢复为最初的历史。（注：如果回溯到某条历史指令做了更改然后enter执行了的话，这时就创造了新的一条历史指令，原历史指令并未改变）
-ctrl+r进入搜索历史指令模式，输入要搜索的字符
-Alt + d   Delete the Word after the cursor.
+同样ctrl+space默认被用于切换输入法了，仍然可以打开fcitx configuration，在global config选项卡一页中，就可以看到ctrl+space被注册了，点击它将其设置为ctrl+数字键盘9，就可以了，这样也不会和ctrl+9冲突(注意不要Emacs中什么快捷键都会给你拦截了，要设置切换输入法操作很复杂，Emacs就没有书写中文的命)(一般情况下不需要修改ctrl+space作为切换输入法的快捷键，要修改也是将软件中ctrl+space对应功能的快捷键改为其它的)
 
-ctrl+t替换光标字符和光标前一字符位置，然后光标移到下一位；如果光标在行首则无法执行此指令，若光标在行尾则替换行尾两个字符
-Alt + t   Swap current word with previous
+打开gedit，右键可以看到insert emojis选项，点击它会调出emojis选项框供输入emojis，ctrl+.也可以调出emojis选项框。
 
-Alt + u   UPPER capitalize every character from the cursor to the end of the current word.
-  Alt + l   Lower the case of every character from the cursor to the end of the current word.
 
-ctrl + shift+-也就是ctrl+_  Undo撤销
-Ctrl+v tells the terminal to not interpret the following character, so Ctrl+v Ctrl-I will display a tab character,
-similarly Ctrl+v ENTER will display the escape sequence for the Enter key: ^M，连续按ctrl+v ctrl+i会得到制表符tab，按ctrl+v enter会得到^M，按ctrl+v ctrl+3会得到^[等等
-ctrl+s Stop output to the screen (for long running verbose commands).
-            Then use PgUp/PgDn for navigation.当有指令在运行中时是阻止指令输出(没有指令在运行中的话就是阻止输出，就是按任何键都没输出除了ctrl+q或者ctrl+c，见ctrl+q指令)
-Ctrl + q当有指令在运行中时是Allow output to the screen，如果之前有被ctrl+s阻止过的话（ctrl+s阻止输出过程中在shell中输入字符按ctrl+q结束的话，会输出到命令行，ctrl+c结束的话即杀死了进程，中途输入的字符也会丢掉）
-ctrl+o不要使用这个快捷键，因为其行为很复杂而且没什么用
+# apt vs apt-get
+引用自(https://itsfoss.com/apt-vs-apt-get-difference/)
 
-无效果的快捷键记录：
-ctrl+v无效果，连续两次ctrl+v则会打印^V
+
 
 ### like windows:
 
@@ -163,46 +146,6 @@ alt+leftMouse drag
 
 
 ------
-
-ctrl+alt+t打开terminal，再按f1打开帮助，查看keyboard shortcuts
-
-ctrl+shift+=/ctrl+-/ctrl+0 放大/缩小/还原内容字体（nautilus也适用）
-
-ctrl+shift+t 新开一个标签页
-ctrl+shift+n 新开一个terminal窗口
-ctrl+shift+w/q 关闭标签页/窗口
-alt+1/2/3... 打开对应的标签页
-
-ctrl+shift+up/down 上下滚动一行
-shift+pageup/pagedown 上下滚动一页
-
-ctrl+l/输入clear 清屏
-
-
-shell的快捷键，不是terminal的
-Bash shell specific keyboard shortcuts are:
-
-ctrl+b/f/p/n 相当于left/right/up/down(back/forward/previous/next)
-alt+b/f 光标向前/向后移动一个词
-
-Delete from the cursor to the beginning of the line.
-Ctrl+u
-Delete from the cursor to the end of the line.
-Ctrl+K
-Ctrl+K(也就是Ctrl+Shift+k)和Ctrl+k不一样都是删除到行尾么？(待验证)
-
-Delete from the cursor to the start of the word.
-Ctrl+W
-Delete previous word
-Esc+Del or Esc+Backspace
-
-Move to the start of the line
-Ctrl+A
-Move to the end of the line
-Ctrl+E
-
-
-从ctrl+w的例子中可以看出ubuntu_shortcuts.md中ctrl+w和ctrl+W是一样的，也就是文中快捷键不区分大小写，ctrl+W并不代表ctrl+shift+w，大小写为小写的只是个别搞忘了
 
 
 ------

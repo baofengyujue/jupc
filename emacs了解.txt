@@ -1,0 +1,77 @@
+如果sudo apt install或sudo apt-get install安装结束后有显示错误，并且打不开安装的程序，这时可以先执行sudo apt update或sudo apt-get update更新一下，然后再执行sudo apt install或sudo apt-get install很有可能就解决问题了
+
+
+本文摘录自(http://www.jesshamrick.com/2012/09/10/absolute-beginners-guide-to-emacs/)
+
+move the point to the mini-buffer
+C-x b
+
+cycle through buffers sequentially with the key combos
+C-x right and C-x left
+
+to quit the mini-buffer
+C-g
+
+C-x 0 : close the active window
+C-x 1 : close all windows except the active window
+C-x 2 : split the active window vertically into two horizontal windows
+C-x 3 : split the active window horizontally into two vertical windows
+C-x o : change active window to next window
+
+To open a file and load it into a buffer, use 
+C-x C-f
+
+save it back to the file on disk, use 
+C-x C-s
+
+“Save As” functionality, use 
+C-x C-w
+
+close/kill it, use 
+C-x k
+
+Emacs terminology:
+kill--cut
+yank--paste(与vim相反，vim中yank为复制，emacs中却是粘贴，
+vim从编辑器拉拽到剪贴板，emacs从剪贴板拉拽到编辑器。
+所以按照vim的视角，这里yank可称为yank back)
+kill without deleting--copy
+
+To select a region
+C-space然后移动光标
+
+To kill(cut) a selected region, use 
+C-w
+
+cut to the end of the current line
+C-k
+
+To perform a yank(paste), use 
+C-y
+
+undo
+C-_
+
+kill(cut) without deleting(copy), use 
+M-w
+
+cycling yank(paste) from the kill(cut) ring:
+M-y
+
+reverse cycling:
+M-Y
+
+To search in a buffer (or region, if you have one selected), use 
+C-s (to search forward) or 
+C-r (to search backward)
+
+To find and replace a search query, use 
+M-%
+
+Press 
+‘space’ to replace it or 
+‘n’ to skip it and go to the next one. Press 
+‘!’ to replace all queries.
+
+bash中注意：
+ctrl+s为阻止输出，所以按了ctrl+s什么也按不动了，只能ctrl+c或ctrl+q退出
