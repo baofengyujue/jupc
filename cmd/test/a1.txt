@@ -1,0 +1,11 @@
+ Volume in drive F has no label.
+ Volume Serial Number is 1773-B4B2
+
+ Directory of F:\JackWang\Desktop\Learn Batch\d1
+
+03/06/2018  09:14 PM    <DIR>          .
+03/06/2018  09:14 PM    <DIR>          ..
+03/06/2018  09:13 PM                29 a1.bat
+03/06/2018  09:14 PM                 0 a1.txt
+               2 File(s)             29 bytes
+               2 Dir(s)  119,573,618,688 bytes free

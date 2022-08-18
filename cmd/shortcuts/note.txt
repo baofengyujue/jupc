@@ -1,0 +1,8 @@
+在git bash中要使用全名xx.bat,在cmd中不需要
+
+在D:\ProgramFiles\Git\usr\bin下创建st文件:
+#!/usr/bin/env bash
+"D:\ProgramFiles\Sublime Text 3\sublime_text.exe" $1 &
+
+在cmd中实现后台运行程序
+start cmd /k "ty aa.md"
