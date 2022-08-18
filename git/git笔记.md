@@ -1,0 +1,3 @@
+- git不会同步空目录，可以添加.gitkeep空文件实现同步空目录
+- 要想返回到之前版本，可以先使用git log查看commit的信息，再使用`git checkout 版本号`临时回到之前版本，再`git checkout master`回到最新版本
+- 
